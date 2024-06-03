@@ -1,0 +1,72 @@
+
+:root {
+    --main-color: #329bfe;
+    --page-hue: 180deg;
+}
+
+body {
+    background-color: hsl(from var(--main-color) var(--page-hue) s 13%);
+    & *{ color: white; margin:0;}
+}
+
+button {
+    background-color: hsl(from var(--main-color) var(--page-hue) s 5%);
+    outline: 0.2rem solid hsl(from var(--main-color) var(--page-hue) s 15%);
+
+    &:hover {
+        background-color: hsl(from var(--main-color) var(--page-hue) s 10%);
+        outline: 0.2rem solid hsl(from var(--main-color) var(--page-hue) s 35%);
+    }
+
+    &:active {
+        translate: 0 0.1rem;
+    }
+
+    cursor: pointer;
+    border: none;
+    padding: 1em 2em;
+    border-radius: 5px;
+    font-family: 'Roboto',
+    sans-serif;
+    font-weight: 500;
+}
+.node{
+    background-color: hsl(from var(--main-color) var(--page-hue) s 5%);
+    outline: 0.2rem solid hsl(from var(--main-color) var(--page-hue) s 15%);
+    padding: 1em 1.5em;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &.placing {
+        outline: 0.2rem solid hsl(from var(--main-color) var(--page-hue) s 35%);
+    }
+}
+.circle{
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+}
+.plus:before{
+    content:"+";
+    width: 1em;
+    height: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.red{
+    background-color: #0007;
+    border: 2px solid hsl(from var(--main-color) calc(var(--page-hue) - 180deg) s 65%);
+    scale: 0.8;
+}
+.green{
+    background-color: green;
+}
+.white{
+    background-color: white;
+}
+.ash{
+    background-color: #0007;
+    border: 2px solid hsl(from var(--main-color) var(--page-hue) s 35%);
+}
