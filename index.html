@@ -18,71 +18,13 @@
     <div id="screen">
         <button id="change-color-button">Change Color</button>
         <button id="ifbutton" class="adder">Add If</button>
+        <button id="stringbutton" class="adder">Add String</button>
     </div>
 </body>
+<script src="camera.js"></script>
+<script src="ifbutton.js"></script>
 <script>
-    var root = document.querySelector(':root');
-    var randomhue = Math.floor(Math.random() * 360);
-    root.style.setProperty('--page-hue', randomhue + "deg");
-    //change hue every 10 second
-    
-    var ifbutton = document.querySelector('#ifbutton');
-    var changecolorbutton = document.querySelector('#change-color-button');
 
-    changecolorbutton.addEventListener('click', () => {
-        var randomhue = Math.floor(Math.random() * 360);
-        root.style.setProperty('--page-hue', randomhue + "deg");
-    });
-
-    var placing = false;
-    document.addEventListener('mousemove', (event) => {
-        let thisitem = document.querySelector(".placing")
-        if(thisitem){
-            let mousepos = { x: event.clientX, y: event.clientY };
-            thisitem.style.left = mousepos.x - thisitem.offsetWidth / 2 + 'px';
-            thisitem.style.top = mousepos.y - thisitem.offsetHeight / 2 + 'px';
-        }
-    })
-    document.body.addEventListener('click', (event) => {
-        if(placing && !event.target.classList.contains("adder")){
-            let thisitem = document.querySelector(".placing")
-            thisitem.classList.remove("placing");
-            placing = false;
-        }
-    })
-    ifbutton.addEventListener('click', (event) => {
-        let mousepos = { x: event.clientX, y: event.clientY };
-        placing = true;
-        let latestnode = `<div class="node placing" style="width:20em;position: absolute; left: ${mousepos.x}px; top: ${mousepos.y}px; display:flex; flex-direction:column"><div class="title">If</div>
-        <div class="nodebody" style="display:flex;flex-direction:column;width:100%;height:100%;">
-            <div class="line" style="display:flex;flex-direction:row;align-items:center;justify-content:space-between;width:100%;font-size:0.8em;margin:0.5em 0em">
-                <span style="display:flex;gap:1rem"><div class="circle ash"></div>Condition</span>
-                <span style="display:flex;gap:1rem">True<div class="circle red"></div></span>
-            </div>
-            <div class="line" style="display:flex;flex-direction:row;align-items:center;justify-content:space-between;width:100%;font-size:0.8em;margin:0.5em 0em">
-                    <span style="display:flex;gap:1rem"><div class="plus"></div>Else If</span>
-                    <span style="display:flex;gap:1rem">False<div class="circle red"></div></span>
-            </div>
-        </div>
-        </div>`;
-        document.querySelector('#screen').insertAdjacentHTML('beforeend', latestnode);
-        let thisitem = document.querySelector(".placing")
-        if(thisitem){
-            let mousepos = { x: event.clientX, y: event.clientY };
-            thisitem.style.left = mousepos.x - thisitem.offsetWidth / 2 + 'px';
-            thisitem.style.top = mousepos.y - thisitem.offsetHeight / 2 + 'px';
-        }
-        
-    });
-
-    class nodelibrary {
-        constructor() {
-            this.nodes = [];
-        }
-        addnode(node) {
-            this.nodes.push(node);
-        }
-    }
     class connectorlibrary {
         constructor() {
             this.connectors = [];

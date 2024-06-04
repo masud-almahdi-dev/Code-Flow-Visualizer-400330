@@ -45,21 +45,47 @@ button {
 .circle{
     width: 1em;
     height: 1em;
+    min-width: 1em;
+    min-height: 1em;
     border-radius: 50%;
 }
-.plus:before{
-    content:"+";
+.plus{
+    &:before{
+        content:"+";
+        width: 1em;
+        height: 1em;
+        font-weight: 600;
+        font-size: 1em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+};
+.transpared{
+    border: 2px solid transparent;
+    color: hsl(from var(--main-color) calc(var(--page-hue) - 180deg) s 65%);
+}
+.redfill{
+    background-color: hsl(from var(--main-color) calc(var(--page-hue) - 180deg) s 65%);
+}
+.orange{
+    background-color: #0007;
+    border: 2px solid hsl(from var(--main-color) calc(var(--page-hue) - 90deg) s 75%);
+}
+.orangefill{
+    background-color: hsl(from var(--main-color) calc(var(--page-hue) - 90deg) s 75%);
+}
+.triangle{
+    /* make the div a play button */
     width: 1em;
     height: 1em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    clip-path: polygon(0% 10%, 100% 55%, 0% 100%);
 }
 .red{
     background-color: #0007;
     border: 2px solid hsl(from var(--main-color) calc(var(--page-hue) - 180deg) s 65%);
-    scale: 0.8;
 }
+
 .green{
     background-color: green;
 }
@@ -68,5 +94,23 @@ button {
 }
 .ash{
     background-color: #0007;
-    border: 2px solid hsl(from var(--main-color) var(--page-hue) s 35%);
+    border: 2px solid hsl(from var(--main-color) var(--page-hue) s 45%);
 }
+.ashfill{
+    background-color: hsl(from var(--main-color) var(--page-hue) s 45%);
+}
+.transpash{
+    border: 2px solid transparent;
+    color: hsl(from var(--main-color) var(--page-hue) s 45%);
+}
+.string .line [contenteditable="true"]{
+    background-color: hsl(from var(--main-color) var(--page-hue) s 25% / 10%);
+    &:focus{
+        background-color: hsl(from var(--main-color) var(--page-hue) s 25%);
+    }
+    border-radius: 0.2em;
+    width: 80%;
+    max-width: 19em;
+    padding:0.5rem;
+}
+
